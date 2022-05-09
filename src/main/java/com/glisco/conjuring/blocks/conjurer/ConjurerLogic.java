@@ -13,6 +13,8 @@ import net.minecraft.util.collection.DataPool;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Box;
 import net.minecraft.util.math.Vec3d;
+import net.minecraft.util.math.random.AbstractRandom;
+import net.minecraft.util.math.random.SimpleRandom;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.Difficulty;
 import net.minecraft.world.LightType;
@@ -48,7 +50,7 @@ public abstract class ConjurerLogic {
     private int maxNearbyEntities = 6;
     private int requiredPlayerRange = 16;
     private int spawnRange = 4;
-    private final Random random = new Random();
+    private final AbstractRandom random = new SimpleRandom(new Random().nextLong());
     private boolean requiresPlayer = true;
     private boolean active = false;
 

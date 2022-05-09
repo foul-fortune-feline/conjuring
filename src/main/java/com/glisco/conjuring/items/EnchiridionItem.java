@@ -8,7 +8,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsageContext;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.server.network.ServerPlayerEntity;
-import net.minecraft.text.LiteralText;
+import net.minecraft.text.LiteralTextContent;
+import net.minecraft.text.MutableText;
 import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
@@ -54,6 +55,6 @@ public class EnchiridionItem extends Item {
 
     @Override
     public Text getName(ItemStack stack) {
-        return stack.getOrCreateNbt().getBoolean("Sandwich") ? new LiteralText("Ice Cream Sandwich") : super.getName(stack);
+        return stack.getOrCreateNbt().getBoolean("Sandwich") ? MutableText.of(new LiteralTextContent("Ice Cream Sandwich")) : super.getName(stack);
     }
 }

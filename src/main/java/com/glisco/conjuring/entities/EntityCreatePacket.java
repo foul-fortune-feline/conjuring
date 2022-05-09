@@ -56,7 +56,7 @@ public class EntityCreatePacket {
                 e.setId(entityID);
                 e.setUuid(uuid);
                 e.setPosition(x, y, z);
-                e.updateTrackedPosition(x, y, z);
+                e.updateTrackedPositionAndAngles(x, y, z, e.prevYaw, e.prevPitch, 1, false);
                 e.setPitch(pitch);
                 e.setYaw(yaw);
 

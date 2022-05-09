@@ -82,11 +82,11 @@ public interface SoulAlloyTool {
 
             String level = "●".repeat(Math.max(0, modifiers.getInt(key)));
 
-            tooltip.add(new TranslatableText(modifier.translation_key).setStyle(Style.EMPTY.withColor(TextColor.fromRgb(modifier.textColor))).append(": §7" + level));
+            tooltip.add(MutableText.of(new TranslatableTextContent(modifier.translation_key)).setStyle(Style.EMPTY.withColor(TextColor.fromRgb(modifier.textColor))).append(": §7" + level));
         }
 
         if (!tooltip.isEmpty() && stack.hasEnchantments()) {
-            tooltip.add(new LiteralText(""));
+            tooltip.add(MutableText.of(new LiteralTextContent("")));
         }
 
         return tooltip;

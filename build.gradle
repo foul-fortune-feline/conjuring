@@ -34,6 +34,10 @@ loom {
 }
 
 repositories {
+    flatDir {
+        dirs 'lib'
+    }
+
     maven { url "https://maven.shedaniel.me/" }
 
     maven { url "https://maven.terraformersmc.com" }
@@ -55,15 +59,27 @@ dependencies {
     // Fabric API. This is technically optional, but you probably want it anyway.
     modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
-    modCompileOnly "me.shedaniel:RoughlyEnoughItems-api-fabric:${project.rei_version}"
-    modLocalRuntime "me.shedaniel:RoughlyEnoughItems-fabric:${project.rei_version}"
+//    modCompileOnly "me.shedaniel:RoughlyEnoughItems-api-fabric:${project.rei_version}"
+//    modCompileOnly "me.shedaniel:RoughlyEnoughItems-api-fabric:8.1.457"
+    modCompileOnly "me.shedaniel:RoughlyEnoughItems-${project.rei_version}"
+    modImplementation "dev.architectury:architectury-fabric:${project.architectury_version}"
+
+    modApi("me.shedaniel.cloth:cloth-config-fabric:7.0.60") {
+        exclude(group: "net.fabricmc.fabric-api")
+    }
 
     modImplementation "com.terraformersmc:modmenu:${project.modmenu_version}"
 
     modImplementation "vazkii.patchouli:Patchouli:${project.patchouli_version}"
 
+
     modImplementation "io.wispforest:owo-lib:${project.owo_version}"
     include "io.wispforest:owo-sentinel:${project.owo_version}"
+
+    modImplementation "me.zeroeightsix:fiber:0.23.0-2"
+    implementation "me.zeroeightsix:fiber:${project.fiber_version}"
+
+
 
     modImplementation 'com.ptsmods:devlogin:2.0'
 
@@ -120,6 +136,8 @@ publishing {
 
 
     repositories {
-
+        maven {
+            url = "https://maven.modmuss50.me/"
+        }
     }
 }

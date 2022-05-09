@@ -26,8 +26,8 @@ public class SoulEntityRenderer extends EntityRenderer<SoulEntity> {
 
         ParticleEffect dust = new DustParticleEffect(new Vec3f(0.5f, 1f, 1f), 0.75f);
 
+        boolean allParticles = MinecraftClient.getInstance().options.getParticles().getValue() == ParticlesMode.ALL;
         World world = MinecraftClient.getInstance().world;
-        boolean allParticles = MinecraftClient.getInstance().options.particles == ParticlesMode.ALL;
 
         double lastX = entity.lastRenderX + world.random.nextDouble() * 0.3 - 0.15;
         double lastY = entity.lastRenderY + world.random.nextDouble() * 0.3 - 0.15;

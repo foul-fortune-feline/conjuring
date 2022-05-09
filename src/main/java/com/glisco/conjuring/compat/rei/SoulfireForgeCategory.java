@@ -13,9 +13,10 @@ import me.shedaniel.rei.api.client.registry.display.DisplayCategory;
 import me.shedaniel.rei.api.common.category.CategoryIdentifier;
 import me.shedaniel.rei.api.common.entry.EntryIngredient;
 import me.shedaniel.rei.api.common.util.EntryStacks;
-import net.minecraft.text.LiteralText;
+import net.minecraft.text.LiteralTextContent;
+import net.minecraft.text.MutableText;
 import net.minecraft.text.Text;
-import net.minecraft.text.TranslatableText;
+import net.minecraft.text.TranslatableTextContent;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
@@ -23,7 +24,7 @@ import java.util.List;
 
 public class SoulfireForgeCategory implements DisplayCategory<SoulfireForgeDisplay> {
 
-    private static final TranslatableText NAME = new TranslatableText("conjuring.gui.soulfire_forge");
+    private static final MutableText NAME = MutableText.of(new TranslatableTextContent("conjuring.gui.soulfire_forge"));
 
     @Override
     public CategoryIdentifier<? extends SoulfireForgeDisplay> getCategoryIdentifier() {
@@ -69,7 +70,7 @@ public class SoulfireForgeCategory implements DisplayCategory<SoulfireForgeDispl
 
         widgets.add(Widgets.createTexturedWidget(Conjuring.id("textures/gui/soulfire_forge.png"), origin.x + 57, origin.y + 11, 176, 0, 32, 32));
 
-        Label timeWidget = Widgets.createLabel(new Point(origin.x + 74, origin.y + 43), new LiteralText(recipeDisplay.getSmeltTime() / 20 + "s")).color(0x3F3F3F).shadow(false);
+        Label timeWidget = Widgets.createLabel(new Point(origin.x + 74, origin.y + 43), MutableText.of(new LiteralTextContent(recipeDisplay.getSmeltTime() / 20 + "s"))).color(0x3F3F3F).shadow(false);
         if (recipeDisplay.getSmeltTime() == 1380) {
             timeWidget = timeWidget.tooltip("haha funny number");
         }

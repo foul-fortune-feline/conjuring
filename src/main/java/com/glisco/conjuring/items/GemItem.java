@@ -5,10 +5,7 @@ import com.glisco.conjuring.items.soul_alloy_tools.SoulAlloyTool;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.text.Style;
-import net.minecraft.text.Text;
-import net.minecraft.text.TextColor;
-import net.minecraft.text.TranslatableText;
+import net.minecraft.text.*;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.Rarity;
 import net.minecraft.world.World;
@@ -31,7 +28,7 @@ public class GemItem extends Item {
 
     @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
-        tooltip.add(new TranslatableText(modifier.translation_key).setStyle(Style.EMPTY.withColor(TextColor.fromRgb(modifier.textColor))));
-        tooltip.add(new TranslatableText(modifier.translation_key + ".description").formatted(Formatting.GRAY));
+        tooltip.add(MutableText.of(new TranslatableTextContent(modifier.translation_key)).setStyle(Style.EMPTY.withColor(TextColor.fromRgb(modifier.textColor))));
+        tooltip.add(MutableText.of(new TranslatableTextContent(modifier.translation_key + ".description")).formatted(Formatting.GRAY));
     }
 }

@@ -19,8 +19,9 @@ import net.minecraft.particle.ParticleTypes;
 import net.minecraft.screen.NamedScreenHandlerFactory;
 import net.minecraft.screen.PropertyDelegate;
 import net.minecraft.screen.ScreenHandler;
+import net.minecraft.text.MutableText;
 import net.minecraft.text.Text;
-import net.minecraft.text.TranslatableText;
+import net.minecraft.text.TranslatableTextContent;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
@@ -186,6 +187,6 @@ public class SoulfireForgeBlockEntity extends BlockEntity implements Implemented
 
     @Override
     public Text getDisplayName() {
-        return new TranslatableText("conjuring.gui.soulfire_forge");
+        return MutableText.of(new TranslatableTextContent("conjuring.gui.soulfire_forge"));
     }
 }

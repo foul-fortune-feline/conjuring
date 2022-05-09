@@ -11,8 +11,9 @@ import me.shedaniel.rei.api.client.gui.widgets.Widgets;
 import me.shedaniel.rei.api.client.registry.display.DisplayCategory;
 import me.shedaniel.rei.api.common.category.CategoryIdentifier;
 import me.shedaniel.rei.api.common.util.EntryStacks;
+import net.minecraft.text.MutableText;
 import net.minecraft.text.Text;
-import net.minecraft.text.TranslatableText;
+import net.minecraft.text.TranslatableTextContent;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
@@ -20,7 +21,7 @@ import java.util.List;
 
 public class SoulWeavingCategory implements DisplayCategory<SoulWeavingDisplay> {
 
-    private static final TranslatableText NAME = new TranslatableText("conjuring.gui.soul_weaver");
+    private static final MutableText NAME = MutableText.of(new TranslatableTextContent("conjuring.gui.soul_weaver"));
 
     @Override
     public CategoryIdentifier<? extends SoulWeavingDisplay> getCategoryIdentifier() {

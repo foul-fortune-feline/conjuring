@@ -85,14 +85,21 @@ public class Conjuring implements ModInitializer {
     public static final GemTinkeringCriterion GEM_TINKERING_CRITERION = new GemTinkeringCriterion();
 
     static {
-        CONJURER_SCREEN_HANDLER_TYPE = ScreenHandlerRegistry.registerSimple(Conjuring.id("conjurer"), ConjurerScreenHandler::new);
-        SOULFIRE_FORGE_SCREEN_HANDLER_TYPE = ScreenHandlerRegistry.registerSimple(Conjuring.id("soulfire_forge"), SoulfireForgeScreenHandler::new);
+        CONJURER_SCREEN_HANDLER_TYPE = Registry.register(Registry.SCREEN_HANDLER, Conjuring.id("conjurer"),
+                new ScreenHandlerType<>(ConjurerScreenHandler::new));
+        SOULFIRE_FORGE_SCREEN_HANDLER_TYPE = Registry.register(Registry.SCREEN_HANDLER, Conjuring.id("soulfire_forge"),
+                new ScreenHandlerType<>(SoulfireForgeScreenHandler::new));
 
-        SOUL_PROJECTILE = FabricEntityTypeBuilder.<SoulProjectileEntity>create(SpawnGroup.MISC, SoulProjectileEntity::new).dimensions(EntityDimensions.fixed(0.25f, 0.25f)).build();
-        SOUL_DIGGER = FabricEntityTypeBuilder.<SoulDiggerEntity>create(SpawnGroup.MISC, SoulDiggerEntity::new).dimensions(EntityDimensions.fixed(0.25f, 0.25f)).build();
-        SOUL_HARVESTER = FabricEntityTypeBuilder.<SoulHarvesterEntity>create(SpawnGroup.MISC, SoulHarvesterEntity::new).dimensions(EntityDimensions.fixed(0.25f, 0.25f)).build();
-        SOUL_FELLER = FabricEntityTypeBuilder.<SoulFellerEntity>create(SpawnGroup.MISC, SoulFellerEntity::new).dimensions(EntityDimensions.fixed(0.25f, 0.25f)).build();
-        SOUL_MAGNET = FabricEntityTypeBuilder.<SoulMagnetEntity>create(SpawnGroup.MISC, SoulMagnetEntity::new).dimensions(EntityDimensions.fixed(0.25f, 0.25f)).build();
+        SOUL_PROJECTILE = FabricEntityTypeBuilder.<SoulProjectileEntity>create(SpawnGroup.MISC, SoulProjectileEntity::new)
+                .dimensions(EntityDimensions.fixed(0.25f, 0.25f)).build();
+        SOUL_DIGGER = FabricEntityTypeBuilder.<SoulDiggerEntity>create(SpawnGroup.MISC, SoulDiggerEntity::new)
+                .dimensions(EntityDimensions.fixed(0.25f, 0.25f)).build();
+        SOUL_HARVESTER = FabricEntityTypeBuilder.<SoulHarvesterEntity>create(SpawnGroup.MISC, SoulHarvesterEntity::new)
+                .dimensions(EntityDimensions.fixed(0.25f, 0.25f)).build();
+        SOUL_FELLER = FabricEntityTypeBuilder.<SoulFellerEntity>create(SpawnGroup.MISC, SoulFellerEntity::new)
+                .dimensions(EntityDimensions.fixed(0.25f, 0.25f)).build();
+        SOUL_MAGNET = FabricEntityTypeBuilder.<SoulMagnetEntity>create(SpawnGroup.MISC, SoulMagnetEntity::new)
+                .dimensions(EntityDimensions.fixed(0.25f, 0.25f)).build();
     }
 
     @Override
